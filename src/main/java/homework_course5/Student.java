@@ -8,6 +8,7 @@ public class Student implements Human{
     String dateOfBirth;
     String  dateOfEnrollment;
     String facultyName;
+    StudentType type;
 
     @Override
     public String toString() {
@@ -45,6 +46,11 @@ public class Student implements Human{
 
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    @Override
+    public ScholarType getType() {
+        return type;
     }
 
     public String getDateOfEnrollment() {
@@ -122,4 +128,8 @@ public class Student implements Human{
     public int hashCode() {
         return Objects.hash(firstName, lastName, dateOfBirth, dateOfEnrollment, facultyName, specializationName);
     }
+
+
 }
+
+

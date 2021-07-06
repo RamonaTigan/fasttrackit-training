@@ -20,6 +20,7 @@ public class Professor implements Human {
     String dateOfBirth;
     String dateOfHiring;
     String specializationName;
+    ProfessorType type;
 
 
     public String getFirstName() {
@@ -44,6 +45,11 @@ public class Professor implements Human {
 
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    @Override
+    public ScholarType getType() {
+        return type;
     }
 
     public String getDateOfHiring() {
@@ -109,6 +115,8 @@ public class Professor implements Human {
     public int hashCode() {
         return Objects.hash(firstName, lastName, dateOfBirth, dateOfHiring, specializationName);
     }
+
+
 }
 
 

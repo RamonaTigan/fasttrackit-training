@@ -1,7 +1,10 @@
 package homework_course5;
 
-public enum StudentType {
+public enum StudentType implements ScholarType {
     BACHELOR,
     MASTERS,
-    PHD
+    PHD;
+
+
 }
+
