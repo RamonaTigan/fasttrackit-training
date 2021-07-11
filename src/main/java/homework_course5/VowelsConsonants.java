@@ -4,14 +4,27 @@ public class VowelsConsonants {
     public static void main(String[] args) {
         int v = 0, c = 0;
         String str = "Follow your dreams, keep sleeping";
-        for (int i = 0; i < str.length(); i++ ){
-            switch (str.charAt(i)) {
-                case 1:
-                    ((str.charAt(i) == 'a') || (str.charAt(i) == 'e') || (str.charAt(i) == 'i') || (str.charAt(i) == 'o') || (str.charAt(i) == 'u')
+        for (int x = 0; x < str.length(); ++x ){
+            char ch = str.charAt(x);
+            switch (str.charAt(x)) {
+                case 'a':
+                    ch = 'a';
+
+                case 'e':
+                    ch = 'e';
+
+                case 'i':
+                    ch = 'i';
+
+                case 'o':
+                    ch = 'o';
+
+                case 'u':
+                    ch = 'u';
                     v++;
                     break;
-                case 2:
-                    ((str.charAt(i) >= 'a') && (str.charAt(i) <= 'z' );
+
+                default:
                     c++;
                     break;
             }
