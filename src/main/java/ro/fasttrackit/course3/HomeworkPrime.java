@@ -10,7 +10,7 @@ public class HomeworkPrime {
                 isPrime = false;
                 break;
             }
-            System.out.println("Number is prime ");
+            System.out.println(" Number " + x + " is prime ");
 
 
         }
