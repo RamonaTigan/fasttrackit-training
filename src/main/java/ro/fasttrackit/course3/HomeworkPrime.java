@@ -2,7 +2,7 @@ package ro.fasttrackit.course3;
 
 public class HomeworkPrime {
     public static void main(String[] args) {
-        int x = 103;
+        int x = 1979;
         int k = 2;
         boolean isPrime = true;
         for (k = 2; k < (x / 2); k++)
