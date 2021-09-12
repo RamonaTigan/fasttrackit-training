@@ -10,34 +10,14 @@ public class Assignment implements Comparable<Assignment>{
     private String AssignmentDescription;
     private DifficultyLevel myLev;
 
-    @Override
-    public int compareTo(Assignment other) {
-        int compareByCourseNumber = Integer.compare(this.courseNumber, other.getCourseNumber());
-        if (compareByCourseNumber != 0) {
-            return compareByCourseNumber;
-        }
-        int compareByTitle = this.assignmentTitle.compareTo(other.getAssignmentTitle());
-        if (compareByTitle != 0) {
-            return compareByTitle;
-        }
-       int compareByLevel =  this.myLev.compareTo(other.getMyLev());
-        return compareByLevel;
-    }
 
-    @Override
-    public String toString() {
-        return "Assignment{" +
-                "uniqueId=" + uniqueId +
-                ", courseNumber=" + courseNumber +
-                ", assignmentTitle='" + assignmentTitle + '\'' +
-                '}';
-    }
-
-
-    public Assignment(UUID uniqueId, int courseNumber, String assignmentTitle) {
+    public Assignment(UUID uniqueId,
+                      int courseNumber,
+                      String assignmentTitle, DifficultyLevel myLev) {
         this.uniqueId = uniqueId;
         this.courseNumber = courseNumber;
         this.assignmentTitle = assignmentTitle;
+        this.myLev = myLev;
     }
 
 
@@ -72,6 +52,7 @@ public class Assignment implements Comparable<Assignment>{
     public void setAssignmentDescription(String assignmentDescription) {
         AssignmentDescription = assignmentDescription;
     }
+
     public DifficultyLevel getMyLev() {
         return myLev;
     }
@@ -80,6 +61,28 @@ public class Assignment implements Comparable<Assignment>{
         this.myLev = myLev;
     }
 
+    @Override
+    public int compareTo(Assignment other) {
+        int compareByCourseNumber = Integer.compare(this.courseNumber, other.getCourseNumber());
+        if (compareByCourseNumber != 0) {
+            return compareByCourseNumber;
+        }
+        int compareByTitle = this.assignmentTitle.compareTo(other.getAssignmentTitle());
+        if (compareByTitle != 0) {
+            return compareByTitle;
+        }
+        int compareByLevel = this.myLev.compareTo(other.getMyLev());
+        return compareByLevel;
+    }
+
+    @Override
+    public String toString() {
+        return "Assignment{" +
+                "uniqueId=" + uniqueId +
+                ", courseNumber=" + courseNumber +
+                ", assignmentTitle='" + assignmentTitle + '\'' +
+                '}';
+    }
 
 
 }

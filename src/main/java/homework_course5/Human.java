@@ -1,5 +1,6 @@
 package homework_course5;
 
+
 public interface Human {
     void listen();
     String talks();
@@ -19,6 +20,9 @@ public interface Human {
     void setDateOfBirth(String dateOfBirth);
 
     ScholarType getType();
+
+    String getUniqueId();
+    void setUniqueId(String uniqueId);
 
 }
 

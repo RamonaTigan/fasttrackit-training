@@ -9,20 +9,18 @@ public class Student implements Human{
     String  dateOfEnrollment;
     String facultyName;
     StudentType type;
-
-    @Override
-    public String toString() {
-        return "Student{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", dateOfBirth=" + dateOfBirth +
-                ", dateOfEnrollment=" + dateOfEnrollment +
-                ", facultyName='" + facultyName + '\'' +
-                ", specializationName='" + specializationName + '\'' +
-                '}';
-    }
-
     String specializationName;
+    String uniqueId;
+
+    public Student(String firstName, String lastName, String dateOfBirth, String dateOfEnrollment, String facultyName, String specializationName, String uniqueId) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dateOfBirth = dateOfBirth;
+        this.dateOfEnrollment = dateOfEnrollment;
+        this.facultyName = facultyName;
+        this.specializationName = specializationName;
+        this.uniqueId = uniqueId;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -47,6 +45,10 @@ public class Student implements Human{
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
+
+    public String getUniqueId() { return uniqueId; }
+
+    public void setUniqueId(String uniqueId) { this.uniqueId = uniqueId; }
 
     @Override
     public ScholarType getType() {
@@ -94,41 +96,48 @@ public class Student implements Human{
         return false;
     }
 
-    public static void main(String[] args) {
-        Student stud1 = new Student();
-        stud1.setFirstName("Tom");
-        stud1.setLastName("Ellis");
-        stud1.setDateOfBirth("17.11.1978");
-        stud1.setDateOfEnrollment("01.10.2000");
-        stud1.setFacultyName("Acting Faculty");
-        stud1.setSpecializationName("Acting");
-        Student stud2 = new Student();
-        stud2.setFirstName("Tom");
-        stud2.setLastName("Ellis");
-        stud2.setDateOfBirth("17.11.1978");
-        stud2.setDateOfEnrollment("01.10.2000");
-        stud2.setFacultyName("Acting Faculty");
-        stud2.setSpecializationName("Acting");
-        System.out.println(stud1.toString());
-        System.out.println(stud1.equals(stud2));
-        System.out.println(stud2.hashCode());
 
-
-    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Student student = (Student) o;
-        return Objects.equals(firstName, student.firstName) && Objects.equals(lastName, student.lastName) && Objects.equals(dateOfBirth, student.dateOfBirth) && Objects.equals(dateOfEnrollment, student.dateOfEnrollment) && Objects.equals(facultyName, student.facultyName) && Objects.equals(specializationName, student.specializationName);
+        return Objects.equals(firstName, student.firstName) && Objects.equals(lastName, student.lastName) &&
+                Objects.equals(dateOfBirth, student.dateOfBirth) && Objects.equals(dateOfEnrollment, student.dateOfEnrollment)
+                && Objects.equals(facultyName, student.facultyName) && Objects.equals(specializationName, student.specializationName);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(firstName, lastName, dateOfBirth, dateOfEnrollment, facultyName, specializationName);
     }
+    @Override
+    public String toString() {
+        return "Student{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", dateOfBirth='" + dateOfBirth + '\'' +
+                ", dateOfEnrollment='" + dateOfEnrollment + '\'' +
+                ", facultyName='" + facultyName + '\'' +
+                ", type=" + type +
+                ", specializationName='" + specializationName + '\'' +
+                ", uniqueId=" + uniqueId + '\'' +
+                '}';
+    }
 
+
+    public static void main(String[] args) {
+        Student stud1 = new Student("Tom", "Ellis", "17.11.1978", "01.10.2000",
+                "Acting Faculty", "Acting", "421"  );
+        Student stud2 = new Student("Lauren", "German", "29.11.1978", "01.10.2001",
+                "University of Southern California", "Acting", "625");
+        System.out.println(stud1.toString());
+        System.out.println(stud1.equals(stud2));
+        System.out.println(stud2.hashCode());
+
+
+    }
 
 }
 
